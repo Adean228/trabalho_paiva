@@ -1,0 +1,201 @@
+/* Definição de Variáveis CSS (Root) */
+:root {
+    /* Cores */
+    --cor-principal: #004d99; /* Azul escuro, lembra a bandeira do Mercosul/Oceanos */
+    --cor-secundaria: #00b33c; /* Verde, lembra esperança/natureza da América do Sul */
+    --cor-fundo-claro: #f4f4f9; /* Fundo muito claro */
+    --cor-texto: #333333; /* Cinza escuro para o texto principal */
+    --cor-borda: #cccccc; /* Cinza claro para bordas */
+    --cor-fundo-tabela: #eaf6ff; /* Fundo suave para a tabela */
+
+    /* Fontes */
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --fonte-titulo: 'Georgia', serif;
+
+    /* Tamanhos */
+    --espacamento-padrao: 1.5rem;
+    --borda-arredondada: 8px;
+}
+
+/* Estilos Globais e Body */
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    background-color: var(--cor-fundo-claro);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+/* Container Principal para limitar largura */
+div, form {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: var(--espacamento-padrao);
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: var(--borda-arredondada);
+}
+
+/* Títulos */
+h2 {
+    font-family: var(--fonte-titulo);
+    color: var(--cor-principal);
+    border-bottom: 3px solid var(--cor-secundaria);
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+h3 {
+    color: var(--cor-secundaria);
+    margin-top: var(--espacamento-padrao);
+}
+
+/* Linha Divisória */
+hr {
+    border: none;
+    height: 1px;
+    background-color: var(--cor-borda);
+    margin: var(--espacamento-padrao) 0;
+}
+
+/* Lista de Objetivos/Membros do Mercosul */
+ul {
+    list-style-type: none; /* Remove marcadores padrão */
+    padding-left: 0;
+}
+
+ul li {
+    background-color: var(--cor-fundo-tabela);
+    margin-bottom: 8px;
+    padding: 10px 15px;
+    border-left: 5px solid var(--cor-principal);
+    border-radius: var(--borda-arredondada);
+}
+
+ul li strong {
+    color: var(--cor-principal);
+}
+
+/* Seção de Países */
+.pais-info {
+    display: inline-block;
+    width: 200px; /* Largura fixa para cada bloco */
+    margin-right: var(--espacamento-padrao);
+    text-align: center;
+    vertical-align: top;
+}
+
+.pais-info h3 {
+    margin-bottom: 5px;
+}
+
+img {
+    width: 100%;
+    max-width: 150px;
+    height: auto;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+a {
+    color: var(--cor-secundaria);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: var(--cor-principal);
+    text-decoration: underline;
+}
+
+/* Tabela de Fusos Horários */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--espacamento-padrao) 0;
+    background-color: white;
+    border: 1px solid var(--cor-borda);
+}
+
+thead {
+    background-color: var(--cor-principal);
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid var(--cor-borda);
+}
+
+tbody tr:nth-child(even) {
+    background-color: var(--cor-fundo-tabela); /* Listras para melhor leitura */
+}
+
+tbody tr:hover {
+    background-color: #d1e8ff; /* Efeito hover na linha */
+}
+
+/* Formulário e Fieldset */
+fieldset {
+    border: 2px solid var(--cor-principal);
+    border-radius: var(--borda-arredondada);
+    padding: var(--espacamento-padrao);
+    margin-top: var(--espacamento-padrao);
+}
+
+legend {
+    color: var(--cor-principal);
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 0 10px;
+}
+
+/* Inputs, Textarea e Select */
+input[type="text"], textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px 0;
+    display: inline-block;
+    border: 1px solid var(--cor-borda);
+    border-radius: 4px;
+    box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* Rádio e Checkbox */
+input[type="radio"], input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Botões */
+input[type="submit"], input[type="reset"] {
+    background-color: var(--cor-secundaria);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+input[type="submit"]:hover {
+    background-color: #00802b; /* Tom mais escuro de verde */
+}
+
+input[type="reset"] {
+    background-color: #cc0000;
+}
+
+input[type="reset"]:hover {
+    background-color: #990000;
+}
