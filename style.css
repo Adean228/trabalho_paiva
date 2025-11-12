@@ -1,201 +1,276 @@
-/* Definição de Variáveis CSS (Root) */
+/*
+ * Variáveis Globais (Root)
+ * Usando cores inspiradas nas bandeiras dos países do Mercosul
+ */
 :root {
-    /* Cores */
-    --cor-principal: #004d99; /* Azul escuro, lembra a bandeira do Mercosul/Oceanos */
-    --cor-secundaria: #00b33c; /* Verde, lembra esperança/natureza da América do Sul */
-    --cor-fundo-claro: #f4f4f9; /* Fundo muito claro */
-    --cor-texto: #333333; /* Cinza escuro para o texto principal */
-    --cor-borda: #cccccc; /* Cinza claro para bordas */
-    --cor-fundo-tabela: #eaf6ff; /* Fundo suave para a tabela */
+    /* Cores Principais do Layout */
+    --cor-fundo: #f0f8ff;          /* Azul Claro/Off-White para o fundo da página */
+    --cor-texto-principal: #333;   /* Cinza Escuro para leitura */
+    --cor-texto-secundario: #555;  /* Cinza Médio */
+    --cor-borda: #ccc;             /* Borda Cinza Clara */
+
+    /* Cores de Destaque (Inspiradas no Mercosul/América do Sul) */
+    --cor-mercosul-verde: #009900; /* Verde do Brasil */
+    --cor-mercosul-azul: #0077b6;  /* Azul da Argentina/Uruguai */
+    --cor-mercosul-amarelo: #ffd700; /* Amarelo do Brasil/Sol de Maio */
+    --cor-mercosul-vermelho: #040404; /* Vermelho do Paraguai */
 
     /* Fontes */
-    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    --fonte-titulo: 'Georgia', serif;
-
-    /* Tamanhos */
-    --espacamento-padrao: 1.5rem;
-    --borda-arredondada: 8px;
+    --fonte-principal: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --fonte-titulo: 'Georgia', 'Times New Roman', serif;
 }
 
-/* Estilos Globais e Body */
+/* --- Estilos Gerais do Corpo e Estrutura --- */
 body {
     font-family: var(--fonte-principal);
-    color: var(--cor-texto);
-    background-color: var(--cor-fundo-claro);
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto-principal);
     margin: 0;
     padding: 20px;
     line-height: 1.6;
 }
 
-/* Container Principal para limitar largura */
-div, form {
-    max-width: 900px;
-    margin: 20px auto;
-    padding: var(--espacamento-padrao);
-    background-color: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-radius: var(--borda-arredondada);
+div {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Títulos */
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--cor-borda);
+    margin: 15px 0;
+}
+
+/* --- Títulos --- */
 h2 {
     font-family: var(--fonte-titulo);
-    color: var(--cor-principal);
-    border-bottom: 3px solid var(--cor-secundaria);
+    color: var(--cor-mercosul-azul);
+    border-bottom: 2px solid var(--cor-mercosul-verde);
     padding-bottom: 5px;
     margin-top: 0;
 }
 
 h3 {
-    color: var(--cor-secundaria);
-    margin-top: var(--espacamento-padrao);
+    font-family: var(--fonte-titulo);
+    color: var(--cor-mercosul-verde);
+    margin-top: 15px;
 }
 
-/* Linha Divisória */
-hr {
-    border: none;
-    height: 1px;
-    background-color: var(--cor-borda);
-    margin: var(--espacamento-padrao) 0;
-}
-
-/* Lista de Objetivos/Membros do Mercosul */
+/* --- Listas --- */
 ul {
-    list-style-type: none; /* Remove marcadores padrão */
+    list-style-type: none; /* Remove os marcadores de lista padrão */
     padding-left: 0;
 }
 
-ul li {
-    background-color: var(--cor-fundo-tabela);
-    margin-bottom: 8px;
-    padding: 10px 15px;
-    border-left: 5px solid var(--cor-principal);
-    border-radius: var(--borda-arredondada);
+li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
 }
 
-ul li strong {
-    color: var(--cor-principal);
+li::before {
+    content: "🌎"; /* Usa um emoji como marcador */
+    position: absolute;
+    left: 0;
+    color: var(--cor-mercosul-verde);
 }
 
-/* Seção de Países */
+/* --- Seção de Países --- */
+.paises-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+    padding: 20px;
+    background-color: #e9ecef; /* Fundo diferente para a seção de países */
+}
+
 .pais-info {
-    display: inline-block;
-    width: 200px; /* Largura fixa para cada bloco */
-    margin-right: var(--espacamento-padrao);
+    flex: 1 1 100px; /* Flexível, mas com largura base de 200px */
     text-align: center;
-    vertical-align: top;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pais-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .pais-info h3 {
-    margin-bottom: 5px;
+    margin-top: 0;
+    color: var(--cor-mercosul-azul);
 }
 
-img {
-    width: 100%;
-    max-width: 150px;
-    height: auto;
+.pais-info img {
+    /* TAMANHO REDUZIDO AQUI */
+    width: 50px; 
+    height: 50px;
     border: 1px solid var(--cor-borda);
-    border-radius: 4px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
-a {
-    color: var(--cor-secundaria);
+.pais-info a {
+    color: var(--cor-mercosul-vermelho);
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
 }
 
-a:hover {
-    color: var(--cor-principal);
+.pais-info a:hover {
     text-decoration: underline;
 }
 
-/* Tabela de Fusos Horários */
+/* --- Tabela de Fusos Horários --- */
 table {
-    width: 100%;
     border-collapse: collapse;
-    margin: var(--espacamento-padrao) 0;
-    background-color: white;
-    border: 1px solid var(--cor-borda);
+    width: 100%;
+    margin: 20px 0;
+    font-size: 0.9em;
 }
 
-thead {
-    background-color: var(--cor-principal);
+thead tr {
+    background-color: var(--cor-mercosul-verde);
     color: white;
+    text-align: left;
 }
 
 th, td {
     padding: 12px 15px;
-    text-align: left;
     border: 1px solid var(--cor-borda);
 }
 
 tbody tr:nth-child(even) {
-    background-color: var(--cor-fundo-tabela); /* Listras para melhor leitura */
+    background-color: #f7f7f7; /* Zebrado para melhor leitura */
 }
 
 tbody tr:hover {
-    background-color: #d1e8ff; /* Efeito hover na linha */
+    background-color: #e0f2f1; /* Destaque ao passar o mouse */
 }
 
-/* Formulário e Fieldset */
+/* --- Formulário (Form e Fieldset) --- */
+form {
+    padding: 20px;
+    background-color: #fff;
+}
+
 fieldset {
-    border: 2px solid var(--cor-principal);
-    border-radius: var(--borda-arredondada);
-    padding: var(--espacamento-padrao);
-    margin-top: var(--espacamento-padrao);
+    border: 2px solid var(--cor-mercosul-azul);
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
 }
 
 legend {
-    color: var(--cor-principal);
     font-size: 1.2em;
     font-weight: bold;
+    color: var(--cor-mercosul-azul);
     padding: 0 10px;
 }
 
-/* Inputs, Textarea e Select */
-input[type="text"], textarea, select {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0 15px 0;
+/* Estilos para Inputs e Labels */
+label {
     display: inline-block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+input[type="text"], 
+textarea, 
+select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 10px;
     border: 1px solid var(--cor-borda);
     border-radius: 4px;
-    box-sizing: border-box; /* Garante que padding e border não aumentem a largura */
+    box-sizing: border-box; /* Garante que padding e borda estejam dentro da largura */
 }
 
 textarea {
-    resize: vertical;
+    resize: vertical; /* Permite redimensionar verticalmente */
 }
 
-/* Rádio e Checkbox */
-input[type="radio"], input[type="checkbox"] {
+/* Estilos para Radio e Checkbox */
+input[type="radio"], 
+input[type="checkbox"] {
     margin-right: 5px;
 }
 
 /* Botões */
-input[type="submit"], input[type="reset"] {
-    background-color: var(--cor-secundaria);
+input[type="submit"], 
+input[type="reset"] {
+    background-color: var(--cor-mercosul-verde);
     color: white;
-    padding: 10px 20px;
+    padding: 10px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     margin-right: 10px;
-    font-size: 1em;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-input[type="submit"]:hover {
-    background-color: #00802b; /* Tom mais escuro de verde */
+    transition: background-color 0.3s ease;
 }
 
 input[type="reset"] {
-    background-color: #cc0000;
+    background-color: var(--cor-mercosul-vermelho);
+}
+
+input[type="submit"]:hover {
+    background-color: #006600;
 }
 
 input[type="reset"]:hover {
-    background-color: #990000;
+    background-color: #990a28;
+}
+
+/* --- Responsividade Básica --- */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .paises-container {
+        flex-direction: column;
+    }
+
+    .pais-info {
+        flex: 1 1 100%;
+    }
+
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+    
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr { border: 1px solid var(--cor-borda); margin-bottom: 10px; }
+
+    td {
+        border: none;
+        border-bottom: 1px solid #eee;
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 45%;
+        padding-left: 10px;
+        font-weight: bold;
+        text-align: left;
+        color: var(--cor-mercosul-azul);
+    }
 }
